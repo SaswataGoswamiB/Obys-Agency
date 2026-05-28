@@ -65,6 +65,40 @@ t1.from("#page1",{
     ease: "power2.out"
 })
 
+t1.from("#nav",{
+    y:-100,
+    opacity:0,
+    ease: "power2.out",
+    duration:0.4    
+})
+
 }
 
 loadingAnimation();
+
+//Cursor Code
+const textElements = ["H1", "H2", "H3", "H4", "H5", "H6", "P", "SPAN", "A"];
+
+document.addEventListener("mousemove", function(e){
+    const hoveredElement = document.elementFromPoint(e.clientX, e.clientY);
+    const crsr = document.getElementById("crsr");
+    
+    // Check if hovering over text element
+    if (textElements.includes(hoveredElement?.tagName)) {
+        gsap.to("#crsr", {
+            x: e.clientX,
+            y: e.clientY,
+            scale: 1.5,
+            ease: "power2.out",
+            duration: 0.2
+        });
+    } else {
+        gsap.to("#crsr", {
+            x: e.clientX,
+            y: e.clientY,
+            scale: 1,
+            ease: "power2.out",
+            duration: 0.2
+        });
+    }
+});
