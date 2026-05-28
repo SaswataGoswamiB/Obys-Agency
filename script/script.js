@@ -3,7 +3,9 @@
 //     smooth : true
 // });
 
-var counter = 1;
+function loadingAnimation(){
+
+    var counter = 1;
 var countervalyue = document.querySelector("#line1-part1 h5");
 var timeinterval = setInterval(() => {
     countervalyue.textContent = counter;
@@ -56,9 +58,13 @@ t1.to("#loader", {
     transition: "all 0.5s ease"
 });
 
-t1.from("#page2",{
+t1.from("#page1",{
     delay:0.1,
     y:1200,
     opacity:0,
     ease: "power2.out"
 })
+
+}
+
+loadingAnimation();

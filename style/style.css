@@ -6,7 +6,7 @@
 
 html,
 body {
-    min-height: 100%;
+    height: 100%;
     width: 100%;
     font-family: 'Inter', sans-serif;
     color: #f6f3ff;
@@ -19,19 +19,34 @@ body {
 
 #main {
     position: relative;
-    min-height: 100vh;
+    height: 100%;
     background:
         radial-gradient(circle at top left, rgba(255, 255, 255, 0.18), transparent 20%),
         radial-gradient(circle at bottom right, rgba(255, 255, 255, 0.12), transparent 18%),
-        linear-gradient(135deg, #4f46e5 0%, #8b5cf6 40%, #ec4899 100%);
+        linear-gradient(135deg, #161094 0%, #4a2998 40%, #b70c62 100%);
     border: 2px solid transparent;
     border-image: linear-gradient(135deg, #38bdf8 0%, #8b5cf6 40%, #fb7185 100%) 1;
 }
 
-#loader {
+#page1{
     width: 100%;
-    min-height: 75vh;
-    position: absolute;
+    height: 100vh;
+    /* layered gradient + subtle texture to emphasize upward motion */
+    background:
+        repeating-linear-gradient(45deg, rgba(255,255,255,0.03) 0 3px, transparent 3px 12px),
+        linear-gradient(180deg, #ff9acb 0%, #ec4899 30%, #7c3aed 100%);
+    background-blend-mode: overlay;
+    background-size: cover;
+    background-position: center;
+    will-change: transform;
+}
+
+#loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70vh;
     z-index: 9999;
     background-color: rgba(0, 0, 0, 0.18);
     backdrop-filter: blur(10px);
@@ -106,6 +121,12 @@ body {
     color: rgba(246, 243, 255, 0.55);
 }
 
+#page1 #nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2vw 4vw;
+}
 @keyframes anime {
 
     0%{
