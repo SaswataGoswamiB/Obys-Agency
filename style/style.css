@@ -1,3 +1,21 @@
+:root {
+    --bg-deep: #161094;
+    --bg-purple: #4a2998;
+    --bg-rose: #b70c62;
+    --accent-pink: #ec4899;
+    --accent-light-pink: #ff9acb;
+    --accent-violet: #7c3aed;
+    --accent-cyan: #38bdf8;
+    --accent-cyan-hover: #1490c5;
+    --text-light: #f6f3ff;
+    --text-white: #ffffff;
+    --text-gold: #ffd166;
+    --overlay-dark: rgba(0, 0, 0, 0.18);
+    --overlay-white-soft: rgba(255, 255, 255, 0.18);
+    --overlay-white-weak: rgba(255, 255, 255, 0.12);
+    --line-white: rgba(255, 255, 255, 0.03);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -9,133 +27,140 @@ body {
     height: 100%;
     width: 100%;
     font-family: 'Inter', sans-serif;
-    color: #f6f3ff;
-    /* background: #120a2f; */
+    color: var(--text-light);
     overflow: hidden;
-}
-
-/* body {
-    overflow-x: hidden;
-} */
-
-#crsr{
-    height: 3vw;
-    width: 3vw;
-    border-radius: 50%;
-    background-color: transparent;
-    border: 1px solid white;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 999;
-    /* pointer-events: none; */
+    background: linear-gradient(135deg, var(--bg-deep) 0%, var(--bg-purple) 40%, var(--bg-rose) 100%);
+    
 }
 
 #main {
     position: relative;
     min-height: 100vh;
-    background:
-        radial-gradient(circle at top left, rgba(255, 255, 255, 0.18), transparent 20%),
-        radial-gradient(circle at bottom right, rgba(255, 255, 255, 0.12), transparent 18%),
-        linear-gradient(135deg, #161094 0%, #4a2998 40%, #b70c62 100%);
+    background:E
+        radial-gradient(circle at top left, var(--overlay-white-soft), transparent 20%),
+        radial-gradient(circle at bottom right, var(--overlay-white-weak), transparent 18%),
+        linear-gradient(135deg, var(--bg-deep) 0%, var(--bg-purple) 40%, var(--bg-rose) 100%);
     border: 2px solid transparent;
-    border-image: linear-gradient(135deg, #38bdf8 0%, #8b5cf6 40%, #fb7185 100%) 1;
-}
-
-#page1{
-    width: 100%;
-    height: 100vh;
-    /* layered gradient + subtle texture to emphasize upward motion */
-    background:
-        repeating-linear-gradient(45deg, rgba(255,255,255,0.03) 0 3px, transparent 3px 12px),
-        linear-gradient(180deg, #ff9acb 0%, #ec4899 30%, #7c3aed 100%);
-    background-blend-mode: overlay;
-    background-size: cover;
-    background-position: center;
-    will-change: transform;
+    border-image: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-violet) 40%, var(--accent-pink) 100%) 1;
 }
 
 #loader {
-    position: fixed;
-    top: 0;
-    left: 0;
+    height: 80%;
     width: 100%;
-    height: 70vh;
-    z-index: 99999999;
-    background-color: rgba(0, 0, 0, 0.18);
+    position: fixed;
+    z-index: 9999;
+    background-color: var(--overlay-dark);
     backdrop-filter: blur(10px);
-    padding: 20vh 8vw;
-}
-
-.line {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    max-width: 1200px;
+    padding: 15vh 15vw;
+    border: none;
+    /* If you want the multi-color border instead, use the line below instead of the solid border above:
+    border: 2px solid transparent;
+    border-image: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-violet) 40%, var(--accent-pink) 100%) 1;
+    */
+    /* line-height: 15vh; */
 }
 
 .line h1,
-.line h2,
-#line1-part1 h5,
-#line1-part1 h6 {
-    margin: 0;
-}
-
-.line h1 {
+.line h2 {
     font-family: 'Poppins', sans-serif;
-    font-size: clamp(3rem, 7vw, 6rem);
+    font-size: 6vw;
+    font-size-adjust: inherit;
+    text-transform: uppercase;
     font-weight: 800;
-    letter-spacing: -0.05em;
-    line-height: 0.95;
+    letter-spacing: -0.04em;
     color: #ffffff;
+    -webkit-text-stroke: 1px var(--accent-pink);
+    text-stroke: 1px var(--accent-pink);
+    /* border-color: #1490c5; */
 }
 
-.title-inline {
-    display: inline-flex;
-    align-items: flex-end;
-    gap: 1rem;
-    flex-wrap: wrap;
-}
-
-.title-inline h1 {
-    display: inline-block;
-}
-
-.title-inline h2 {
-    display: inline-block;
+.line h3 {
+    padding: 4vh 3vw;
+    height: 5.1vh;
     font-family: 'Poppins', sans-serif;
-    /* color: #ffd166; */
-    font-size: clamp(2.5rem, 4.5vw, 4rem);
-    font-weight: 700;
-    white-space: nowrap;
-    letter-spacing: -0.02em;
-    margin-left: 4vw;
-    margin-top: 0.4rem;
-    animation-name: anime;
-    animation-duration: 2s;
-    animation-iteration-count: infinite;
+    font-size: 3.3vw;
+    font-size-adjust: inherit;
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    color: rgba(255, 255, 255, 0.85);
+    -webkit-text-stroke: 0.8px var(--accent-pink);
+    text-stroke: 0.8px var(--accent-pink);
+    /* border-color: #1490c5; */
+    font-style: italic;
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+    animation: anime 1s infinite alternate;
+}
+
+.line h2 {
+    position: relative;
+    right: -59.1vw;
+    top: -10.2rem;
+}
+
+.line {
+    /* background-color: #38bdf8; */
+    height: fit-content;
+    width: fit-content;
+}
+
+#page1,
+#page2,
+#page3,
+#page4 {
+    width: 100%;
+    min-height: 100vh;
+    /* display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem; */
+    position: relative;
+}
+
+#page1 {
+    background:
+        repeating-linear-gradient(45deg, var(--line-white) 0 3px, transparent 3px 12px),
+        linear-gradient(180deg, var(--accent-light-pink) 0%, var(--accent-pink) 30%, var(--accent-violet) 100%);
+}
+
+#page2 {
+    background:
+        repeating-linear-gradient(45deg, var(--line-white) 0 3px, transparent 3px 12px),
+        linear-gradient(180deg, var(--accent-violet) 0%, var(--accent-pink) 30%, var(--accent-light-pink) 100%);
+}
+
+#page3 {
+    background:
+        repeating-linear-gradient(45deg, var(--line-white) 0 3px, transparent 3px 12px),
+        linear-gradient(180deg, var(--bg-rose) 0%, var(--bg-purple) 50%, var(--accent-cyan) 100%);
+}
+
+#page4 {
+    background:
+        repeating-linear-gradient(45deg, var(--line-white) 0 3px, transparent 3px 12px),
+        linear-gradient(180deg, var(--bg-deep) 0%, var(--bg-purple) 40%, var(--bg-rose) 100%);
 }
 
 #line1-part1 {
     display: flex;
     align-items: center;
-    justify-content: flex-start;
-    gap: 1rem;
+    justify-content: start;
+    font-weight: 300;
+    font-size: 5vh;
+    font-style: italic;
+    font-display: fallback;
+    gap: .8vw;
+    font-family: 'silk-serif';
 }
 
-#line1-part1 h5,
-#line1-part1 h6 {
-    font-family: 'Inter', sans-serif;
-    font-size: 1.35rem;
-    font-weight: 400;
-    color: rgba(246, 243, 255, 0.8);
+#line1-part1 h5 {
+    width: 5vw;
+    text-align: right;
 }
 
-#line1-part1 h6 {
-    color: rgba(246, 243, 255, 0.55);
-}
-
-#page1 #nav{
+#page1 #nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -146,194 +171,89 @@ body {
     height: auto;
 }
 
-#nav #nav-part2 {
+#page1 #nav-part2 {
     display: flex;
     align-items: center;
-    gap: 2vw;
-    padding-right: 0.5vw;
+    justify-content: space-between;
+    gap: 1vw;
+    padding-right: 1vw;
 }
 
-#nav #nav-part2 h4 {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    font-weight: 700;
-    color: rgba(246, 243, 255, 0.8);
-    cursor: pointer;
-    transition: color 0.3s ease;
-}
-
-.hero{
-    width: fit-content;
-    margin-left: 30%;
+.hero {
+    /* background-color: red; */
+    width: 75%;
+    margin-left: 26%;
     height: fit-content;
-    /* transform: translateX(-50%); */
-    /* background-color: #38bdf8; */
-    display: flex;
-    align-items: center;
-    position: relative;
-    z-index: 99999;
+
 }
 
-.hero h1{
-    font-family: 'Poppins', sans-serif;
-    font-size: 7vw;
-    font-weight: 800;
-    line-height: 7vw;
-    color: #ffffff;
+.hero h1 {
+    font-size: 5vw;
+    text-transform: uppercase;
+    line-height: 12vh;
+    font-weight: 780;
+    /* animation: desc-anime 3s ease-in-out infinite; */
 }
 
-.hero h2,.hero h3{
-    font-family: 'Poppins', sans-serif;
-    font-size: 7vw;
-    font-weight: 800;
-    line-height: 7vw;
-    color: #ffffff;
-    /* border-bottom: 5px solid #ffffff; */
+/* .hero:nth-child(1) h1 {
+    animation-delay: 0s;
 }
-#hero1{
-    /* background-color: #4a2998; */
+
+.hero:nth-child(2) h1 {
+    animation-delay: 1s;
+}
+
+.hero:nth-child(3) h1 {
+    animation-delay: 2s;
+} */
+
+.hero:nth-child(2) {
     margin-top: 20vh;
 }
-/* #hero3{
-    border-bottom: 1vw solid #ffffff;
-    padding-bottom: 0.8vw;
-} */
-#hero3 :hover{
-    -webkit-text-stroke: 2px #1490c5;
+
+
+
+#crsr {
+    width: 4vw;
+    height: 7vh;
+    border-radius: 50%;
+    z-index: 99999999999;
+    position: fixed;
+    border: 1px solid var(--bg-deep);
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+.hero h1:hover{
+    -webkit-text-stroke: 2px #ffffff;
     color: transparent;
-    cursor: pointer;
 }
-
-/* page-2 */
-#page2{
-    width: 100%;
-    height: 100vh;
-    background:
-        repeating-linear-gradient(45deg, rgba(255,255,255,0.03) 0 3px, transparent 3px 12px),
-        linear-gradient(180deg, #7c3aed 0%, #ec4899 30%, #ff9acb 100%);
-    background-blend-mode: overlay;
-    background-size: cover;
-    background-position: center;
-    will-change: transform;
-    position: relative;
-    padding-top: 10vh;
-    padding-left: 5vh;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: nowrap;
-}
-.video-container{
-    width: 100%;
-    height: 65vh;
-    position: relative;
-    left: 25%;
-    /* background-image: url(https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Q29kaW5nJTIwUGluayUyMEJsdWV8ZW58MHx8MHx8fDA%3D);
-    background-size: cover;
-    background-position: center; */
-    flex-shrink: 0;
-}
-
-.video-container video{
-    width: 50%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.video-container img{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 50%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.8;
-}
-
-
 
 @keyframes anime {
+    0% {
+        font-family: "plain light";
+    }
 
-    0%{
-        font-family: 'plain light';
-        -webkit-text-stroke: 1px #fff;
-        color: #ffd166;
-        font-weight: 500;
-        opacity: 1;
+    50% {
+        font-family: "plain light";
+
     }
-    47%{
-        font-family: 'plain light';
-        -webkit-text-stroke: 1px #fff;
-        color: #ffd166;
-        font-weight: 500;
-        opacity: 0;
+}
+
+/* @keyframes desc-anime {
+0%, 30% {
+        color: white;
+        -webkit-text-stroke: 0;
     }
-    100%{
-        font-family: 'silk serif';
-        -webkit-text-stroke: 1px #ffd166;
+
+    50%, 80% {
         color: transparent;
-        font-weight: 700;
-        opacity: 1;
+        -webkit-text-stroke: 2px white;
     }
-    100%{
-        font-family: 'silk serif';
-        -webkit-text-stroke: 1px #ffd166;
-        color: transparent;
-        font-weight: 700;
-        opacity: 0;
+
+    100% {
+        color: white;
+        -webkit-text-stroke: 0;
     }
     
-}
-
-@media (max-width: 768px) {
-    #loader {
-        padding: 10vh 5vw;
-    }
-
-    .line h1 {
-        font-size: clamp(2.5rem, 11vw, 4.5rem);
-    }
-
-    .title-inline h2 {
-        font-size: clamp(2rem, 7vw, 3rem);
-    }
-
-    #line1-part1 {
-        flex-wrap: wrap;
-        gap: 0.75rem;
-    }
-}
-
-
-/* Chrome, Edge, Safari */
-/* Custom Scrollbar */
-
-/* Custom Scrollbar */
-
-/* Fully transparent scrollbar track */
-::-webkit-scrollbar {
-    width: 12px;
-    background: transparent;
-}
-
-/* Transparent background */
-::-webkit-scrollbar-track {
-    background: transparent;
-}
-
-/* Transparent thumb with pink-blue gradient border */
-::-webkit-scrollbar-thumb {
-    background: transparent;
-    border-radius: 20px;
-    border: 2px solid transparent;
-    background-clip: padding-box;
-
-    /* Gradient border */
-    box-shadow: inset 0 0 0 2px;
-    border-image: linear-gradient(180deg, #ec4899, #38bdf8) 1;
-}
-
-/* Hover effect */
-::-webkit-scrollbar-thumb:hover {
-    border-image: linear-gradient(180deg, #ff4fa3, #60dfff) 1;
-}
+} */
