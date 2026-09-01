@@ -1,3 +1,10 @@
+gsap.registerPlugin(ScrollTrigger);
+
+// new LocomotiveScroll({
+//     el: document.querySelector("#main"),
+//     smooth: true
+// });
+
 function loadingAnimation() {
 
     var counter = 1;
@@ -73,15 +80,63 @@ function loadgsap() {
         stagger: 0.2,
     });
 
-    timeline.from("#page1 .hero h1", {
+    timeline.from(".hero h1", {
         y: 100,
-        opacity: 0,
+        // opacity: 0,
+        duration : 0.8,
         stagger: 0.2,
     });
+
+    timeline.from(".hero h2", {
+        y: 100,
+        // opacity: 0,
+        duration : 0.8,
+        stagger: 0.2,
+    });
+
 }
 
 loadingAnimation();
 loadgsap();
+
+// const aboutCards = gsap.utils.toArray("#aboutme-content > div");
+
+// gsap.set(aboutCards[0], { xPercent: 100 });
+// gsap.set(aboutCards[1], { xPercent: 0 });
+// gsap.set(aboutCards[2], { xPercent: -100 });
+
+// gsap.timeline({
+//     scrollTrigger: {
+//         trigger: "#aboutme-content",
+//         start: "top 75%",
+//         end: "top 25%",
+//         scrub: 1
+//     }
+// })
+//     .to(aboutCards[0], { xPercent: 0, ease: "none" }, 0)
+//     .to(aboutCards[1], { xPercent: 0, ease: "none" }, 0)
+//     .to(aboutCards[2], { xPercent: 0, ease: "none" }, 0);
+
+
+gsap.set("#card-contact-1", { xPercent: 100 });
+gsap.set("#card-contact-2", { opacity: 0, scale: 0.5 });
+gsap.set("#card-contact-3", { xPercent: -100 });
+
+
+gsap.to(["#card-contact-1", "#card-contact-2", "#card-contact-3"],{
+    xPercent: 0,
+    opacity: 1,
+    scale: 1,
+    duration: 1,
+    scrollTrigger: {
+        trigger: "#aboutme-content",
+        start: "top 75%",
+        end: "top 25%",
+        scrub: 1,
+        markers: true,
+    }
+});
+
 
 
 //cursor effect
@@ -89,7 +144,7 @@ document.addEventListener("mousemove", function (e) {
     gsap.to("#crsr", {
         x: e.clientX,
         y: e.clientY,
-        duration: 0.2,
+        duration: 0.1,
     });
 });
 
